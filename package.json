@@ -1,0 +1,24 @@
+{
+  "name": "miaosha-front1.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "live-server ./ --port=3000"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "bootstrap": "^3.3.7",
+    "jquery": "^2.1.4",
+    "jquery-validation": "^1.14.0",
+    "js-md5": "^0.7.3",
+    "layui-layer": "^1.0.9",
+    "vue": "^2.5.13"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.0"
+  }
+}
