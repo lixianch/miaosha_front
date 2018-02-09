@@ -2,8 +2,7 @@
  *
  * Created by dmall on 2018/1/31.
  */
-var config = {};
-config.HOST = "http://localhost:8080"
+var salt = "!@)(";
 function showLoading(){
     var index = layer.load(1, {
         shade: [0.1,'#fff'] //0.1透明度的白色背景
@@ -33,6 +32,8 @@ function alertMsgCallback(msg,fn){
     }
 }
 function ajaxCallback1(data,fn){
+    layer.closeAll();
+    data = data.data;
     var msg = data.msg;
     var code = data.code;
     if(msg != null && msg != '') {
@@ -45,6 +46,8 @@ function ajaxCallback1(data,fn){
 }
 
 function ajaxCallback2(data){
+    data = data.data;
+    layer.closeAll();
     if(data.msg != null && data.msg != '') {
         layer.alert(data.msg, {
             skin: 'layui-layer-lan'
