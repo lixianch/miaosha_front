@@ -11,6 +11,7 @@
     <script src="./node_modules/js-md5/build/md5.min.js"></script>
     <script src="./node_modules/vue/dist/vue.js"></script>
     <script src="./node_modules/axios/dist/axios.js"></script>
+    <script src="./js/apilist.js"></script>
     <script src="./js/common.js"></script>
     <title>商品列表</title>
     <script>
@@ -25,7 +26,14 @@
                 },
                 methods:{
                     init: function(){
-
+                        var url = _fn.goodsListApiUrl();
+                        ajax_get(url,null,this.goodsListCallback);
+                    },
+                    goodsListCallback: function (data) {
+                        data = data.data;
+                        if(data.code == '0000'){
+                            this.goodsList = data.data;
+                        }
                     }
                 }
             });
@@ -47,19 +55,19 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>商品名称</td>
+                <tr v-for="item in goodsList">
+                    <td>{{item.goodsName}}</td>
                     <td>
                         <div class="col-xs-6 col-md-3">
                             <a href="#" class="thumbnail">
-                                <img src="./img/iphone8.png" alt="商品图片">
+                                <img :src="item.goodsImg" alt="商品图片">
                             </a>
                         </div>
                     </td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
+                    <td>{{item.goodsPrice}}</td>
+                    <td>{{item.miaoshaPrice}}</td>
+                    <td>{{item.stockCount}}</td>
+                    <td>{{item.goodsDetail}}</td>
                 </tr>
             </tbody>
         </table>

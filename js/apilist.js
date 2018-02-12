@@ -2,7 +2,8 @@ var config = {};
 config.HOST = "http://localhost:8080"
 var apilist = {
     registApi: '/regist/post',
-    loginApi:'login/login'
+    loginApi:'/login/doLogin',
+    goodsListApi: '/goods/listGoods'
 }
 
 var _fn = {
@@ -11,6 +12,9 @@ var _fn = {
     },
     loginApiUrl: function () {
         return config.HOST + apilist.loginApi;
+    },
+    goodsListApiUrl: function () {
+        return config.HOST + apilist.goodsListApi;
     }
 };
 

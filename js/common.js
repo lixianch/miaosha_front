@@ -77,9 +77,10 @@ function ajax_get(url,param,fn) {
 }
 
 function errorCallback(data) {
+    layer.closeAll();
     var msg = "请求失败";
-    if(error.msg != null && error.msg != ''){
-        msg = error.msg;
+    if(data.msg != null && data.msg != ''){
+        msg = data.msg;
     }
     layer.alert(msg, {
         skin: 'layui-layer-lan'

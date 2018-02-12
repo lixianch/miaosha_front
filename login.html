@@ -11,6 +11,7 @@
     <script src="./node_modules/js-md5/build/md5.min.js"></script>
     <script src="./node_modules/vue/dist/vue.js"></script>
     <script src="./node_modules/axios/dist/axios.js"></script>
+    <script src="./js/apilist.js"></script>
     <script src="./js/common.js"></script>
     <title>用户登录</title>
     <script>
@@ -41,7 +42,10 @@
                         var pwd = salt.charAt(4) + salt.charAt(2) + this.password + salt.charAt(1) + salt.charAt(3);
                         param.password = md5(pwd);
                         var url = _fn.loginApiUrl();
-                        ajax_post(url,param,ajaxCallback2);
+                        ajax_post(url,param,this.loginCallback);
+                    },
+                    loginCallback:function () {
+                        window.location.href = '/goods_list.html';
                     },
                     resetForm: function(){
                         this.loginName = null;
